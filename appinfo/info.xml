@@ -21,11 +21,11 @@ Dies ist die Basis-App für alle ClubSuite-Module. Installieren Sie zusätzliche
     <author>Stefan Schulz</author>
     <namespace>ClubSuiteCore</namespace>
     <category>organization</category>
-    <website>https://github.com/clubsuite/clubsuite-core</website>
-    <bugs>https://github.com/clubsuite/clubsuite-core/issues</bugs>
-    <repository type="git">https://github.com/clubsuite/clubsuite-core.git</repository>
-    <screenshot>https://raw.githubusercontent.com/clubsuite/clubsuite-core/main/screenshots/members.png</screenshot>
-    <screenshot>https://raw.githubusercontent.com/clubsuite/clubsuite-core/main/screenshots/dashboard.png</screenshot>
+    <website>https://github.com/ClubSuite-for-Nextcloud/clubsuite-core</website>
+    <bugs>https://github.com/ClubSuite-for-Nextcloud/clubsuite-core/issues</bugs>
+    <repository type="git">https://github.com/ClubSuite-for-Nextcloud/clubsuite-core.git</repository>
+    <screenshot>https://raw.githubusercontent.com/ClubSuite-for-Nextcloud/clubsuite-core/main/screenshots/members.png</screenshot>
+    <screenshot>https://raw.githubusercontent.com/ClubSuite-for-Nextcloud/clubsuite-core/main/screenshots/dashboard.png</screenshot>
     <dependencies>
         <nextcloud min-version="28" max-version="32" />
         <php min-version="8.1" max-version="8.3" />

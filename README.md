@@ -28,7 +28,7 @@ ClubSuite Core ist die Basis-App für alle ClubSuite-Module. Sie bietet:
 
 ```bash
 cd /path/to/nextcloud/apps
-git clone https://github.com/clubsuite/clubsuite-core.git
+git clone https://github.com/ClubSuite-for-Nextcloud/clubsuite-core.git
 cd clubsuite-core
 composer install --no-dev
 npm ci && npm run build
@@ -73,17 +73,17 @@ Diese App implementiert die Nextcloud Privacy API (`IPersonalDataProvider`):
 
 | Modul | Beschreibung |
 |-------|--------------|
-| [clubsuite-applications](https://github.com/clubsuite/clubsuite-applications) | Mitgliedsanträge |
-| [clubsuite-finance](https://github.com/clubsuite/clubsuite-finance) | Kassenbuch |
-| [clubsuite-sepa](https://github.com/clubsuite/clubsuite-sepa) | SEPA-Lastschriften |
-| [clubsuite-meetings](https://github.com/clubsuite/clubsuite-meetings) | Sitzungen & Protokolle |
-| [clubsuite-inventory](https://github.com/clubsuite/clubsuite-inventory) | Inventar & Ausleihe |
-| [clubsuite-scores](https://github.com/clubsuite/clubsuite-scores) | Notenverwaltung |
-| [clubsuite-documents](https://github.com/clubsuite/clubsuite-documents) | Dokumenten-Workflows |
-| [clubsuite-newsletter](https://github.com/clubsuite/clubsuite-newsletter) | Newsletter |
-| [clubsuite-stats](https://github.com/clubsuite/clubsuite-stats) | Statistiken |
-| [clubsuite-training](https://github.com/clubsuite/clubsuite-training) | Trainingsplanung |
-| [clubsuite-donations](https://github.com/clubsuite/clubsuite-donations) | Spendenverwaltung |
+| [clubsuite-applications](https://github.com/ClubSuite-for-Nextcloud/clubsuite-applications) | Mitgliedsanträge |
+| [clubsuite-finance](https://github.com/ClubSuite-for-Nextcloud/clubsuite-finance) | Kassenbuch |
+| [clubsuite-sepa](https://github.com/ClubSuite-for-Nextcloud/clubsuite-sepa) | SEPA-Lastschriften |
+| [clubsuite-meetings](https://github.com/ClubSuite-for-Nextcloud/clubsuite-meetings) | Sitzungen & Protokolle |
+| [clubsuite-inventory](https://github.com/ClubSuite-for-Nextcloud/clubsuite-inventory) | Inventar & Ausleihe |
+| [clubsuite-scores](https://github.com/ClubSuite-for-Nextcloud/clubsuite-scores) | Notenverwaltung |
+| [clubsuite-documents](https://github.com/ClubSuite-for-Nextcloud/clubsuite-documents) | Dokumenten-Workflows |
+| [clubsuite-newsletter](https://github.com/ClubSuite-for-Nextcloud/clubsuite-newsletter) | Newsletter |
+| [clubsuite-stats](https://github.com/ClubSuite-for-Nextcloud/clubsuite-stats) | Statistiken |
+| [clubsuite-training](https://github.com/ClubSuite-for-Nextcloud/clubsuite-training) | Trainingsplanung |
+| [clubsuite-donations](https://github.com/ClubSuite-for-Nextcloud/clubsuite-donations) | Spendenverwaltung |
 
 ## 📄 Lizenz
 
@@ -91,7 +91,7 @@ AGPL v3 – Siehe [LICENSE](LICENSE)
 
 ## 🐛 Bugs & Feature Requests
 
-Bitte erstellen Sie ein [Issue](https://github.com/clubsuite/clubsuite-core/issues) auf GitHub.
+Bitte erstellen Sie ein [Issue](https://github.com/ClubSuite-for-Nextcloud/clubsuite-core/issues) auf GitHub.
 
 ---
 
