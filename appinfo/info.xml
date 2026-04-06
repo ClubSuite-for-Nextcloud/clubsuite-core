@@ -16,7 +16,7 @@ Das Herzstück der ClubSuite – modularer Vereinsverwaltung für Nextcloud.
 
 ## Hinweis
 Dies ist die Basis-App für alle ClubSuite-Module. Installieren Sie zusätzliche Module nach Bedarf.]]></description>
-    <version>1.2.0</version>
+    <version>1.3.0</version>
     <licence>agpl</licence>
     <author>Stefan Schulz</author>
     <namespace>ClubSuiteCore</namespace>
@@ -27,7 +27,7 @@ Dies ist die Basis-App für alle ClubSuite-Module. Installieren Sie zusätzliche
     <screenshot>https://raw.githubusercontent.com/ClubSuite-for-Nextcloud/clubsuite-core/main/screenshots/members.png</screenshot>
     <screenshot>https://raw.githubusercontent.com/ClubSuite-for-Nextcloud/clubsuite-core/main/screenshots/dashboard.png</screenshot>
     <dependencies>
-        <nextcloud min-version="28" max-version="32" />
+        <nextcloud min-version="28" max-version="33" />
         <php min-version="8.1" max-version="8.3" />
     </dependencies>
     <navigations>

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace OCA\ClubSuiteCore\Service;
 
-use DateTime;
+use DateTimeImmutable;
 use Exception;
 use OCA\ClubSuiteCore\Db\Member;
 use OCA\ClubSuiteCore\Db\MemberMapper;
@@ -41,7 +41,7 @@ class MemberService {
         $member = new Member();
         $this->hydrate($member, $data);
         
-        $now = new DateTime();
+        $now = new DateTimeImmutable();
         $member->setCreatedAt($now);
         $member->setUpdatedAt($now);
 
@@ -56,7 +56,7 @@ class MemberService {
         $member = $this->mapper->findById($id);
         
         $this->hydrate($member, $data);
-        $member->setUpdatedAt(new DateTime());
+        $member->setUpdatedAt(new DateTimeImmutable());
 
         return $this->mapper->update($member);
     }
@@ -83,11 +83,11 @@ class MemberService {
         if (isset($data['userId'])) $member->setUserId($data['userId']);
         if (isset($data['mitgliedsnummer'])) $member->setMitgliedsnummer($data['mitgliedsnummer']);
         if (isset($data['eintrittsdatum'])) {
-            $date = $data['eintrittsdatum'] ? new DateTime($data['eintrittsdatum']) : null;
+            $date = $data['eintrittsdatum'] ? new DateTimeImmutable($data['eintrittsdatum']) : null;
             $member->setEintrittsdatum($date);
         }
         if (isset($data['joinedAt'])) {
-            $date = $data['joinedAt'] ? new DateTime($data['joinedAt']) : null;
+            $date = $data['joinedAt'] ? new DateTimeImmutable($data['joinedAt']) : null;
             $member->setJoinedAt($date);
         }
     }
@@ -104,9 +104,27 @@ class MemberService {
         if (isset($data['status']) && !in_array($data['status'], $validStatuses)) {
             throw new Exception('Invalid status');
         }
-        // Basic IBAN check (length)
-        if (!empty($data['iban']) && strlen($data['iban']) < 15) {
-             throw new Exception('Invalid IBAN format');
+        // Basic IBAN check (length + basic format)
+        if (!empty($data['iban']) && !$this->validateIBAN($data['iban'])) {
+            throw new Exception('Invalid IBAN format');
         }
+    }
+
+    private function validateIBAN(string $iban): bool {
+        $iban = strtoupper(str_replace(' ', '', $iban));
+        if (strlen($iban) < 15 || strlen($iban) > 34) {
+            return false;
+        }
+        $pattern = '/^[A-Z]{2}[0-9]{2}[A-Z0-9]+$/';
+        if (!preg_match($pattern, $iban)) {
+            return false;
+        }
+        $checksum = substr($iban, 0, 4) . substr($iban, 4);
+        $checksum = str_replace(
+            range('A', 'Z'),
+            array_map(strval, range(10, 35)),
+            $checksum
+        );
+        return (bool)preg_match('/^[0-9]+$/', $checksum) && bcmod($checksum, '97') === '1';
     }
 }

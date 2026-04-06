@@ -36,12 +36,11 @@ class MemberApiController extends Controller {
         if (!$user) {
             throw new Exception($this->l->t('Not logged in'), 401);
         }
-        // Example check: Only board members or admins can manage members
-        // For now, allowing all logged in users for demo purposes, 
-        // but ideally:
-        // if (!$this->groupManager->isAdmin($user->getUID()) && !$this->groupManager->isInGroup($user->getUID(), 'vorstand')) {
-        //     throw new Exception($this->l->t('Insufficient permissions'), 403);
-        // }
+        if (!$this->groupManager->isAdmin($user->getUID()) 
+            && !$this->groupManager->isInGroup($user->getUID(), 'vorstand')
+            && !$this->groupManager->isInGroup($user->getUID(), 'verwaltung')) {
+            throw new Exception($this->l->t('Insufficient permissions'), 403);
+        }
     }
 
     #[NoCSRFRequired]

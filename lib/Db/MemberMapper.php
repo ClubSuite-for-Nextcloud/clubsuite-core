@@ -48,7 +48,7 @@ class MemberMapper extends QBMapper {
         $qb = $this->db->getQueryBuilder();
 
         $qb->select('*')
-           ->from('clubsuite_members')
+           ->from('clubsuite_core_members')
            ->where($qb->expr()->eq('user_id', $qb->createNamedParameter($userId)));
 
         try {
