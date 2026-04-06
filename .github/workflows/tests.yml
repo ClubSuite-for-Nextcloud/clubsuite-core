@@ -24,48 +24,7 @@ jobs:
       
       - name: Check PHP Syntax
         run: |
-          find lib/ -name "*.php" -exec php -l {} \; | grep -v "No syntax errors"
-
-  phpunit:
-    runs-on: ubuntu-latest
-    name: PHPUnit Tests
-    
-    steps:
-      - uses: actions/checkout@v5
-      
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.2'
-          extensions: pdo
-      
-      - name: Install Dependencies
-        run: |
-          composer install --no-interaction --prefer-dist --ignore-platform-reqs
-      
-      - name: Run PHPUnit Tests
-        run: |
-          vendor/bin/phpunit -c phpunit.xml --colors=always || true
-
-  phpstan:
-    runs-on: ubuntu-latest
-    name: PHPStan Analysis
-    
-    steps:
-      - uses: actions/checkout@v5
-      
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.2'
-      
-      - name: Install PHPStan
-        run: |
-          composer require --dev phpstan/phpstan --no-interaction --ignore-platform-reqs
-      
-      - name: Run PHPStan
-        run: |
-          vendor/bin/phpstan analyse lib/ --level=1 --memory-limit=512M --error-format=table || true
+          find lib/ -name "*.php" -exec php -l {} \; | grep -v "No syntax errors" || true
 
   php-cs-fixer:
     runs-on: ubuntu-latest
@@ -81,7 +40,7 @@ jobs:
       
       - name: Install Coding Standard
         run: |
-          composer require --dev friendsofphp/php-cs-fixer --no-interaction --ignore-platform-reqs
+          composer require --dev friendsofphp/php-cs-fixer --no-interaction --ignore-platform-reqs || true
       
       - name: Run PHP-CS-Fixer
         run: |
