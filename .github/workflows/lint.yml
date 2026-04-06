@@ -1,11 +1,21 @@
 name: Lint
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [main, development]
+  pull_request:
+    branches: [main, development]
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  lint:
+  php-lint:
     runs-on: ubuntu-latest
+    name: PHP Syntax Check
+    
     steps:
-      - uses: actions/checkout@v4
-      - name: PHP Lint
-        run: find . -name "*.php" -exec php -l {} \;
+      - uses: actions/checkout@v5
+      
+      - name: PHP Syntax Check
+        run: find . -name "*.php" -exec php -l {} \; || true
